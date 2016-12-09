@@ -1,6 +1,6 @@
 {
-	'build': 12,
-	'buildtargetid': 'google-play-store',
+	"build": 12,
+	"buildtargetid": "google-play-store",
 	'buildTargetName': 'Google Play Store',
 	'buildStatus': 'queued',
 	'platform': 'android',
