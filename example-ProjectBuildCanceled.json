@@ -1,0 +1,40 @@
+{
+	"build": 14,
+	"buildtargetid": "google-play-store",
+	"buildTargetName": "Google Play Store",
+	"buildStatus": "canceled",
+	"canceledBy": "api",
+	"platform": "android",
+	"workspaceSize": 177643936,
+	"created": "2016-12-09T02:53:54.446Z",
+	"finished": "2016-12-09T02:55:52.999Z",
+	"checkoutStartTime": "2016-12-09T02:57:34.000Z",
+	"checkoutTimeInSeconds": 35,
+	"buildStartTime": "2016-12-09T02:58:09.000Z",
+	"totalTimeInSeconds": 118.553,
+	"lastBuiltRevision": "8efcd805497dfc567ceba99476e073acc2d9708e",
+	"changeset": [],
+	"favorited": false,
+	"deleted": false,
+	"cooldownDate": "1970-01-01T00:00:00.000Z",
+	"auditChanges": 0,
+	"projectVersion": null,
+	"projectName": "IG Unity Training",
+	"projectId": "ig-unity-training",
+	"orgId": "firegate666",
+	"links": {
+		"self": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/14"
+		},
+		"log": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/14/log"
+		},
+		"auditlog": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/14/auditlog"
+		},
+		"artifacts": []
+	}
+}
