@@ -1,31 +1,37 @@
-2016-12-09T02:38:21.146540+00:00 app[web.1]: success { build: 12,
-2016-12-09T02:38:21.146561+00:00 app[web.1]:   buildtargetid: 'google-play-store',
-2016-12-09T02:38:21.146562+00:00 app[web.1]:   buildTargetName: 'Google Play Store',
-2016-12-09T02:38:21.146562+00:00 app[web.1]:   buildStatus: 'started',
-2016-12-09T02:38:21.146563+00:00 app[web.1]:   platform: 'android',
-2016-12-09T02:38:21.146564+00:00 app[web.1]:   created: '2016-12-09T02:32:14.231Z',
-2016-12-09T02:38:21.146564+00:00 app[web.1]:   checkoutStartTime: '2016-12-09T02:40:58.000Z',
-2016-12-09T02:38:21.146565+00:00 app[web.1]:   changeset: [],
-2016-12-09T02:38:21.146565+00:00 app[web.1]:   favorited: false,
-2016-12-09T02:38:21.146566+00:00 app[web.1]:   deleted: false,
-2016-12-09T02:38:21.146566+00:00 app[web.1]:   cooldownDate: '2016-12-09T02:37:08.445Z',
-2016-12-09T02:38:21.146567+00:00 app[web.1]:   auditChanges: 0,
-2016-12-09T02:38:21.146567+00:00 app[web.1]:   projectVersion: null,
-2016-12-09T02:38:21.146568+00:00 app[web.1]:   projectName: 'IG Unity Training',
-2016-12-09T02:38:21.146569+00:00 app[web.1]:   projectId: 'ig-unity-training',
-2016-12-09T02:38:21.146569+00:00 app[web.1]:   orgId: 'firegate666',
-2016-12-09T02:38:21.146570+00:00 app[web.1]:   links: 
-2016-12-09T02:38:21.146571+00:00 app[web.1]:    { self: 
-2016-12-09T02:38:21.146571+00:00 app[web.1]:       { method: 'get',
-2016-12-09T02:38:21.146572+00:00 app[web.1]:         href: '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12' },
-2016-12-09T02:38:21.146573+00:00 app[web.1]:      log: 
-2016-12-09T02:38:21.146573+00:00 app[web.1]:       { method: 'get',
-2016-12-09T02:38:21.146574+00:00 app[web.1]:         href: '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/log' },
-2016-12-09T02:38:21.146574+00:00 app[web.1]:      auditlog: 
-2016-12-09T02:38:21.146575+00:00 app[web.1]:       { method: 'get',
-2016-12-09T02:38:21.146576+00:00 app[web.1]:         href: '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/auditlog' },
-2016-12-09T02:38:21.146576+00:00 app[web.1]:      cancel: 
-2016-12-09T02:38:21.146577+00:00 app[web.1]:       { method: 'delete',
-2016-12-09T02:38:21.146577+00:00 app[web.1]:         href: '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12' },
-2016-12-09T02:38:21.146578+00:00 app[web.1]:      artifacts: [] } }
-2016-12-09T02:38:21.146582+00:00 app[web.1]: no download link submitted
+{
+	"build": 12,
+	"buildtargetid": "google-play-store",
+	"buildTargetName": "Google Play Store",
+	"buildStatus": "started",
+	"platform": "android",
+	"created": "2016-12-09T02:32:14.231Z",
+	"checkoutStartTime": "2016-12-09T02:40:58.000Z",
+	"changeset": [],
+	"favorited": false,
+	"deleted": false,
+	"cooldownDate": "2016-12-09T02:37:08.445Z",
+	"auditChanges": 0,
+	"projectVersion": null,
+	"projectName": "IG Unity Training",
+	"projectId": "ig-unity-training",
+	"orgId": "firegate666",
+	"links": {
+		"self": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12"
+		},
+		"log": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/log"
+		},
+		"auditlog": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/auditlog"
+		},
+		"cancel": {
+			"method": "delete",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12"
+		},
+		"artifacts": []
+	}
+}
