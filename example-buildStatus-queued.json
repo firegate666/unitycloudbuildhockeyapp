@@ -1,37 +1,37 @@
 {
 	"build": 12,
 	"buildtargetid": "google-play-store",
-	'buildTargetName': 'Google Play Store',
-	'buildStatus': 'queued',
-	'platform': 'android',
-	'created': '2016-12-09T02:32:14.231Z',
-	'changeset': [],
-	'favorited': false,
-	'deleted': false,
-	'queuedReason': 'cooldown',
-	'cooldownDate': '2016-12-09T02:37:08.445Z',
-	'auditChanges': 0,
-	'projectVersion': null,
-	'projectName': 'IG Unity Training',
-	'projectId': 'ig-unity-training',
-	'orgId': 'firegate666',
-	'links': {
-		'self': {
-			'method': 'get',
-			'href': '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12'
+	"buildTargetName": "Google Play Store",
+	"buildStatus": "queued",
+	"platform": "android",
+	"created": "2016-12-09T02:32:14.231Z",
+	"changeset": [],
+	"favorited": false,
+	"deleted": false,
+	"queuedReason": "cooldown",
+	"cooldownDate": "2016-12-09T02:37:08.445Z",
+	"auditChanges": 0,
+	"projectVersion": null,
+	"projectName": "IG Unity Training",
+	"projectId": "ig-unity-training",
+	"orgId": "firegate666",
+	"links": {
+		"self": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12"
 		},
-		'log': {
-			'method': 'get',
-			'href': '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/log'
+		"log": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/log"
 		},
-		'auditlog': {
-			'method': 'get',
-			'href': '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/auditlog'
+		"auditlog": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/auditlog"
 		},
-		'cancel': {
-			'method': 'delete',
-			'href': '/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12'
+		"cancel": {
+			"method": "delete",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12"
 		},
-		'artifacts': []
+		"artifacts": []
 	}
 }
