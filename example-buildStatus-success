@@ -1,0 +1,81 @@
+{
+	"build": 12,
+	"buildtargetid": "google-play-store",
+	"buildTargetName": "Google Play Store",
+	"buildStatus": "success",
+	"platform": "android",
+	"workspaceSize": 392933153,
+	"created": "2016-12-09T02:32:14.231Z",
+	"finished": "2016-12-09T02:46:59.000Z",
+	"checkoutStartTime": "2016-12-09T02:40:58.000Z",
+	"checkoutTimeInSeconds": 38,
+	"buildStartTime": "2016-12-09T02:41:36.000Z",
+	"buildTimeInSeconds": 269.734602,
+	"publishStartTime": "2016-12-09T02:46:06.000Z",
+	"publishTimeInSeconds": 10.034324,
+	"totalTimeInSeconds": 884.769,
+	"lastBuiltRevision": "8efcd805497dfc567ceba99476e073acc2d9708e",
+	"changeset": [],
+	"favorited": false,
+	"deleted": false,
+	"cooldownDate": "2016-12-09T02:37:08.445Z",
+	"auditChanges": 0,
+	"projectVersion": {
+		"name": "google-play-store-12",
+		"filename": "firegate666/ig-unity-training/google-play-store-12/Google Play Store.apk",
+		"projectName": "IG Unity Training",
+		"platform": "android",
+		"size": 46259807,
+		"created": "2016-12-09T02:43:38.036Z",
+		"lastMod": "2016-12-09T02:43:38.041Z",
+		"bundleId": "de.firegate.smeq",
+		"udids": []
+	},
+	"projectName": "IG Unity Training",
+	"projectId": "ig-unity-training",
+	"orgId": "firegate666",
+	"links": {
+		"self": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12"
+		},
+		"log": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/log"
+		},
+		"auditlog": {
+			"method": "get",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/auditlog"
+		},
+		"download_primary": {
+			"method": "get",
+			"href": "https://unitycloud-build-user-svc-live-build.s3.amazonaws.com/firegate666/ig-unity-training/google-play-store-12/Google%20Play%20Store.apk?AWSAccessKeyId=AKIAI6ZGSQWNDMF7X33A&Expires=1481253262&Signature=GP%2F2yfZREOgUoGq2eJBJYi32W2M%3D&response-content-disposition=attachment%3B%20filename%3Dfiregate666-ig-unity-training-google-play-store-12-Google_Play_Store.apk&response-content-type=application%2Foctet-stream",
+			"meta": {
+				"type": "APK"
+			}
+		},
+		"create_share": {
+			"method": "post",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/share"
+		},
+		"revoke_share": {
+			"method": "delete",
+			"href": "/api/v1/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/12/share"
+		},
+		"icon": {
+			"method": "get",
+			"href": "https://unitycloud-build-user-svc-live-extras-pub.s3.amazonaws.com/firegate666/ig-unity-training/google-play-store-12/icon.png"
+		},
+		"artifacts": [{
+			"key": "primary",
+			"name": ".APK file",
+			"primary": true,
+			"show_download": true,
+			"files": [{
+				"filename": "Google Play Store.apk",
+				"size": 46259807,
+				"href": "https://unitycloud-build-user-svc-live-build.s3.amazonaws.com/firegate666/ig-unity-training/google-play-store-12/Google%20Play%20Store.apk?AWSAccessKeyId=AKIAI6ZGSQWNDMF7X33A&Expires=1481253262&Signature=GP%2F2yfZREOgUoGq2eJBJYi32W2M%3D&response-content-disposition=attachment%3B%20filename%3Dfiregate666-ig-unity-training-google-play-store-12-Google_Play_Store.apk&response-content-type=application%2Foctet-stream"
+			}]
+		}]
+	}
+}
