@@ -57,8 +57,10 @@ app.post('/build', jsonParser, function (req, res) {
             error: true,
             message: "No build link from Unity Cloud Build webhook"
         });
+      
+        return;
     } else {
-        // URL not available.
+        // URL available.
         res.setHeader('Content-Type', 'application/json');
         res.send({
             error: false,
