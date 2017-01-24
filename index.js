@@ -47,6 +47,9 @@ app.post('/build', jsonParser, function (req, res) {
 
     mainRes = res;
 
+    console.log('Hook invoked, these are the details:');
+    console.log(req.body);
+
     // 1. Get Build API URL
     var buildAPIURL = req.body.links.api_self.href;
     if( !buildAPIURL ) {
