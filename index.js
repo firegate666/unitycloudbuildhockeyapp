@@ -85,6 +85,8 @@ function getBuildDetails( buildAPIURL ){
             data = JSON.parse(data);
 
             switch (data.buildStatus) {
+                case 'sentToBuilder':
+                    handleSentToBuilder(data);
                 case 'started':
                     handleStarted(data);
                     break;
@@ -127,6 +129,13 @@ function printProjectDetails(data) {
 }
 
 /**
+ * @param {Object} data
+ */
+function handleSentToBuilder(data) {
+    console.log('Build sent to builder');
+}
+
+/**
  * Job success received
  * Download artifact and upload to hockey app
  *
@@ -147,12 +156,13 @@ function createShareLink(data) {
     var shareAPIURL = data.links.create_share.href,
         method = data.links.create_share.method;
 
-    console.log("createShareLink: started", method, options.unityAPIBase, shareAPIURL);
+    console.log("createShareLink: started", method, options.unityAPIBase + shareAPIURL);
     najax({
         url: options.unityAPIBase + shareAPIURL,
         type: method,
         headers: {
-            'Authorization': 'Basic ' + options.unityCloudAPIKey
+            'Authorization': 'Basic ' + options.unityCloudAPIKey,
+            'Content-Type': 'application/json'
         },
         success: function(data){
             console.log("createShareLink: finished");
