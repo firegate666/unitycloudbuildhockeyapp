@@ -3,11 +3,15 @@ require('dotenv').config();
 
 // Options
 var options = {
-  port: process.env.PORT || 80, // Heroku port or 80.
-  unityAPIBase: "https://build-api.cloud.unity3d.com/", // URI (e.g. href) recieved in web hook payload.
-  unityCloudAPIKey: process.env.UNITYCLOUD_KEY,
-  hockeyappAPIUpload: "https://rink.hockeyapp.net/api/2/apps/upload",
-  hockeyappAPIKey: process.env.HOCKEYAPP_KEY
+    port: process.env.PORT || 80, // Heroku port or 80.
+    unityAPIBase: "https://build-api.cloud.unity3d.com/", // URI (e.g. href) recieved in web hook payload.
+    unityCloudAPIKey: process.env.UNITYCLOUD_KEY,
+    hockeyappAPIUpload: "https://rink.hockeyapp.net/api/2/apps/upload",
+    hockeyappAPIKey: process.env.HOCKEYAPP_KEY,
+    permalinkApiUrl: process.env.PERMALINK_API_URL, // url that receives the shared url
+    permalinkPayload: {
+        ''
+    }
 };
 
 // Imports
@@ -132,7 +136,10 @@ function handleSuccess(data) {
     createShareLink(data);
 }
 
-function createShareLink() {
+/**
+ * create a share link and submit to external service to create permalink/redirect
+ */
+function createShareLink(data) {
     var shareAPIURL = data.links.create_share.href,
         method = data.links.create_share.method;
 
@@ -160,27 +167,26 @@ function createShareLink() {
 }
 
 /**
- *
  * @param {Object} data
  */
 function handleStarted(data) {
-
+    console.log('Build started: ' + data.checkoutStartTime);
 }
 
 /**
- *
  * @param {Object} data
  */
 function handleQueued(data) {
+    console.log('Build queued: ' + data.created);
+    console.log('Cooldown until: ' + data.cooldownDate);
 
 }
 
 /**
- *
  * @param {Object} data
  */
 function handleCanceled(data) {
-
+    console.log('Build canceled by ' + canceledBy + ': ' + data.finished);
 }
 
 function downloadBinary( binaryURL, filename ){
@@ -242,8 +248,9 @@ function uploadToHockeyApp( filename ){
     var HOCKEY_APP_PROTOCOL = 'https:';
 
     // Create FormData
+    // https://support.hockeyapp.net/kb/api/api-apps#upload-app
     var form = new FormData();
-    form.append('status', 2);
+    form.append('status', 2); // to make the version available for download
     // form.append('mandatory', MANDATORY_TYPE[options.mandatory]);
     form.append('notes', "Automated release triggered from Unity Cloud Build.");
     form.append('notes_type', 0);
