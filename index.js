@@ -166,7 +166,7 @@ function createShareLink(data) {
         },
         success: function(data){
             console.log("createShareLink: finished");
-            console.log("Response", response);
+            console.log("Response", data);
         },
         error: function(error){
             console.log("createShareLink: error");
