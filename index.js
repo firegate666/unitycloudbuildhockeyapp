@@ -22,8 +22,7 @@ var path = require('path'),
     najax = require('najax'),
     FormData = require('form-data'),
     _ = require('lodash'),
-    url = require("url"),
-    path = require("path");
+    url = require("url");
 
 // Run Server
 var server = server.listen( options.port, function(){
