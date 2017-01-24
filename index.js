@@ -95,7 +95,6 @@ function getBuildDetails( buildAPIURL ){
         error: function(error){
             console.log(error);
 
-            mainRes.setHeader('Content-Type', 'application/json');
             mainRes.send({
                 error: true,
                 message: "Problem getting build details from Unity Cloud Build.",
@@ -151,7 +150,6 @@ function createShareLink() {
         error: function(error){
             console.log(error);
 
-            mainRes.setHeader('Content-Type', 'application/json');
             mainRes.send({
                 error: true,
                 message: "Problem creating share link at Unity Cloud Build.",
@@ -218,10 +216,15 @@ function downloadBinary( binaryURL, filename ){
         writeStream.on('finish', () => {
             // console.log("2. downloadBinary: file finished");          
             uploadToHockeyApp( filename );
+            uploadToPlayStore( filename );
         });
     }).on('error', (e) => {
       console.error(e);
     });
+}
+
+function uploadToPlayStore( filename ) {
+
 }
 
 function uploadToHockeyApp( filename ){
