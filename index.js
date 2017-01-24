@@ -86,6 +86,7 @@ function getBuildDetails( buildAPIURL ){
             switch (data.buildStatus) {
                 case 'sentToBuilder':
                     handleSentToBuilder(data);
+                    break;
                 case 'started':
                     handleStarted(data);
                     break;
