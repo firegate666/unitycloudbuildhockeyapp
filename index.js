@@ -75,8 +75,6 @@ app.post('/build', jsonParser, function (req, res) {
 });
 
 function getBuildDetails( buildAPIURL ){
-    console.log("1. getBuildDetails: start");
-
     najax({ 
         url: options.unityAPIBase + buildAPIURL,
         type: 'GET', 
@@ -84,8 +82,6 @@ function getBuildDetails( buildAPIURL ){
             'Authorization': 'Basic ' + options.unityCloudAPIKey
         },
         success: function(data){
-            console.log("1. getBuildDetails: finished");
-
             data = JSON.parse(data);
 
             switch (data.buildStatus) {
@@ -105,8 +101,6 @@ function getBuildDetails( buildAPIURL ){
                     console.log('Unexpected build status', data);
 
             }
-
-            console.log("1. getBuildDetails: job done");
         },
         error: function(error){
             console.log(error);
@@ -203,7 +197,7 @@ function handleCanceled(data) {
 
 function downloadBinary( binaryURL, filename ){
     
-    console.log("2. downloadBinary: start");
+    console.log("Download binary");
     console.log("   " + binaryURL);
     console.log("   " + filename);
 
@@ -227,7 +221,6 @@ function downloadBinary( binaryURL, filename ){
         });
 
         res.on('end', () => {
-            console.log("2. downloadBinary: finished");
             writeStream.end();
         });
 
@@ -246,8 +239,7 @@ function uploadToPlayStore( filename ) {
 }
 
 function uploadToHockeyApp( filename ){
-    console.log("3. uploadToHockeyApp: start");
-    // console.log("readfile: " + filename);
+    console.log("Uploading to HockeyApp");
 
     var readable = fs.createReadStream( filename );
     readable.on('error', () => {
@@ -301,13 +293,7 @@ function uploadToHockeyApp( filename ){
         });
 
         res.on('end', () => {
-
-            console.log("3. uploadToHockeyApp: finished");
-
-            // console.log(jsonString);
-
             deleteFile( filename );
-
         });
     });
     
