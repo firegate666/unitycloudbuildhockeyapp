@@ -6,11 +6,10 @@ var options = {
     port: process.env.PORT || 80, // Heroku port or 80.
     unityAPIBase: "https://build-api.cloud.unity3d.com/", // URI (e.g. href) recieved in web hook payload.
     unityCloudAPIKey: process.env.UNITYCLOUD_KEY,
+    unityShareLinkBase: "https://developer.cloud.unity3d.com/share/",
     hockeyappAPIUpload: "https://rink.hockeyapp.net/api/2/apps/upload",
     hockeyappAPIKey: process.env.HOCKEYAPP_KEY,
-    permalinkApiUrl: process.env.PERMALINK_API_URL, // url that receives the shared url
-    permalinkPayload: {
-    }
+    permalinkApiUrl: process.env.PERMALINK_API_URL // url that receives the shared url
 };
 
 // Imports
@@ -154,7 +153,17 @@ function handleSuccess(data) {
  */
 function createShareLink(data) {
     var shareAPIURL = data.links.create_share.href,
-        method = data.links.create_share.method;
+        method = data.links.create_share.method,
+        payload = {
+            'build': data.build,
+            'buildtargetid': data.buildtargetid,
+            'buildTargetName': data.buildTargetName,
+            'platform': data.platform,
+            'finished': data.finished,
+            'projectName': data.projectName,
+            'projectId': data.projectId,
+            'projectVersion': data.projectVersion
+        };
 
     console.log("createShareLink: started", method, options.unityAPIBase + shareAPIURL);
     najax({
@@ -165,8 +174,22 @@ function createShareLink(data) {
             'Content-Type': 'application/json'
         },
         success: function(data){
+            var shareid = data.shareid;
             console.log("createShareLink: finished");
-            console.log("Response", data);
+            console.log("share link: " + options.unityShareLinkBase + shareid);
+
+            if (options.permalinkApiUrl) {
+                najax({
+                    url: options.permalinkApiUrl,
+                    type: 'post',
+                    data: payload,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            } else {
+                console.log("no permalink api url");
+            }
         },
         error: function(error){
             console.log("createShareLink: error");
