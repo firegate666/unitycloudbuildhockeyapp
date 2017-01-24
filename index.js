@@ -176,7 +176,7 @@ function createShareLink(data) {
         },
         success: function(data){
             var shareid = data.shareid;
-            console.log("createShareLink: finished");
+            console.log("createShareLink: finished", data);
             console.log("share link: " + options.unityShareLinkBase + shareid);
 
             if (options.permalinkApiUrl) {
