@@ -1,0 +1,33 @@
+{
+  "projectName": "IG Unity Training",
+  "buildTargetName": "Google Play Store",
+  "projectGuid": "b9c86065-b48a-46a7-8ee2-a9b78ffc4c15",
+  "orgForeignKey": "772975",
+  "buildNumber": 18,
+  "buildStatus": "queued",
+  "startedBy": "Marco Behnke <marco@behnke.biz>",
+  "platform": "android",
+  "scmType": "git",
+  "links": {
+    "api_self": {
+      "method": "get",
+      "href": "/api/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/18"
+    },
+    "dashboard_url": {
+      "method": "get",
+      "href": "https://developer.cloud.unity3d.com"
+    },
+    "dashboard_project": {
+      "method": "get",
+      "href": "/build/orgs/firegate666/projects/ig-unity-training"
+    },
+    "dashboard_summary": {
+      "method": "get",
+      "href": "/build/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/18/summary"
+    },
+    "dashboard_log": {
+      "method": "get",
+      "href": "/build/orgs/firegate666/projects/ig-unity-training/buildtargets/google-play-store/builds/18/log"
+    }
+  }
+}

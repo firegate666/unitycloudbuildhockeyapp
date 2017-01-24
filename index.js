@@ -25,7 +25,7 @@ var path = require('path'),
     url = require("url");
 
 // Run Server
-var server = server.listen( options.port, function(){
+server = server.listen( options.port, function(){
   console.log('listening on *:' + options.port );
 });
 
@@ -47,8 +47,7 @@ app.post('/build', jsonParser, function (req, res) {
 
     mainRes = res;
 
-    console.log('Hook invoked, these are the details:');
-    console.log(req.body);
+    printProjectDetails(req.body);
 
     // 1. Get Build API URL
     var buildAPIURL = req.body.links.api_self.href;
@@ -82,22 +81,16 @@ function getBuildDetails( buildAPIURL ){
             'Authorization': 'Basic ' + options.unityCloudAPIKey
         },
         success: function(data){
+            console.log("1. getBuildDetails: finished");
 
-            var data = JSON.parse(data);
-            // console.log( data.links.download_primary.href );
+            data = JSON.parse(data);
 
-            if (!data || !data.links || !data.links.download_primary || !data.links.download_primary.href) {
-              console.log("1. getBuildDetails: aborted, no download link");
-            } else {
-              var parsed = url.parse( data.links.download_primary.href );
-              var filename = path.basename( parsed.pathname );
-
-              console.log("1. getBuildDetails: finished");
-
-              // 3. Download binary.
-              downloadBinary( data.links.download_primary.href, filename );
+            switch (data.buildStatus) {
+                case 'queued':
+                    handleSuccess(data);
             }
 
+            console.log("1. getBuildDetails: job done");
         },
         error: function(error){
             console.log(error);
@@ -110,6 +103,86 @@ function getBuildDetails( buildAPIURL ){
             });
         }
     });
+}
+
+/**
+ * print build status details
+ *
+ * @param {Object} data
+ */
+function printProjectDetails(data) {
+    console.log('Project: ' + data.projectName);
+    console.log('Target: ' + data.buildTargetName);
+    console.log('Started by: ' + data.startedBy);
+    console.log('Build status: ' + data.buildStatus);
+}
+
+/**
+ * Job success received
+ * Download artifact and upload to hockey app
+ *
+ * @param {Object} data
+ */
+function handleSuccess(data) {
+    var parsed = url.parse( data.links.download_primary.href );
+    var filename = path.basename( parsed.pathname );
+
+    // 3. Download binary.
+    downloadBinary( data.links.download_primary.href, filename );
+
+    createShareLink(data);
+}
+
+function createShareLink() {
+    var shareAPIURL = data.links.create_share.href,
+        method = data.links.create_share.method;
+
+    console.log("createShareLink: started");
+    najax({
+        url: options.unityAPIBase + shareAPIURL,
+        type: method,
+        headers: {
+            'Authorization': 'Basic ' + options.unityCloudAPIKey
+        },
+        success: function(data){
+            console.log("createShareLink: finished");
+            console.log("Response", response);
+        },
+        error: function(error){
+            console.log(error);
+
+            mainRes.setHeader('Content-Type', 'application/json');
+            mainRes.send({
+                error: true,
+                message: "Problem creating share link at Unity Cloud Build.",
+                errorDump: error
+            });
+        }
+    });
+}
+
+/**
+ *
+ * @param {Object} data
+ */
+function handleStarted(data) {
+
+}
+
+/**
+ *
+ * @param {Object} data
+ */
+function handleQueued(data) {
+
+}
+
+/**
+ *
+ * @param {Object} data
+ */
+function handleCanceled(data) {
+
 }
 
 function downloadBinary( binaryURL, filename ){
@@ -131,7 +204,6 @@ function downloadBinary( binaryURL, filename ){
         var total = len / 1048576; //1048576 - bytes in  1Megabyte
 
         res.on('data', (chunk) => {
-        
             cur += chunk.length;
             writeStream.write(chunk, 'binary');
 
@@ -139,18 +211,14 @@ function downloadBinary( binaryURL, filename ){
         });
 
         res.on('end', () => {
-
             console.log("2. downloadBinary: finished");
             writeStream.end();
-
         });
 
         writeStream.on('finish', () => {
-
             // console.log("2. downloadBinary: file finished");          
             uploadToHockeyApp( filename );
         });
-
     }).on('error', (e) => {
       console.error(e);
     });
