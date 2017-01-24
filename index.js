@@ -89,8 +89,21 @@ function getBuildDetails( buildAPIURL ){
             data = JSON.parse(data);
 
             switch (data.buildStatus) {
+                case 'started':
+                    handleStarted(data);
+                    break;
+                case 'queued':
+                    handleQueued(data);
+                    break;
                 case 'success':
                     handleSuccess(data);
+                    break;
+                case 'canceled':
+                    handleCanceled(data);
+                    break;
+                default:
+                    console.log('Unexpected build status', data);
+
             }
 
             console.log("1. getBuildDetails: job done");
