@@ -86,7 +86,7 @@ function getBuildDetails( buildAPIURL ){
             data = JSON.parse(data);
 
             switch (data.buildStatus) {
-                case 'queued':
+                case 'success':
                     handleSuccess(data);
             }
 
