@@ -10,7 +10,6 @@ var options = {
     hockeyappAPIKey: process.env.HOCKEYAPP_KEY,
     permalinkApiUrl: process.env.PERMALINK_API_URL, // url that receives the shared url
     permalinkPayload: {
-        ''
     }
 };
 
