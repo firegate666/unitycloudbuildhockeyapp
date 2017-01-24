@@ -57,8 +57,6 @@ app.post('/build', jsonParser, function (req, res) {
             error: true,
             message: "No build link from Unity Cloud Build webhook"
         });
-      
-        return;
     } else {
         // URL available.
         res.setHeader('Content-Type', 'application/json');
@@ -86,13 +84,17 @@ function getBuildDetails( buildAPIURL ){
             var data = JSON.parse(data);
             // console.log( data.links.download_primary.href );
 
-            var parsed = url.parse( data.links.download_primary.href );
-            var filename = path.basename( parsed.pathname );
+            if (!data || !data.links || !data.links.download_primary || !data.links.download_primary.href) {
+              console.log("1. getBuildDetails: aborted, no download link");
+            } else {
+              var parsed = url.parse( data.links.download_primary.href );
+              var filename = path.basename( parsed.pathname );
 
-            console.log("1. getBuildDetails: finished");
+              console.log("1. getBuildDetails: finished");
 
-            // 3. Download binary.
-            downloadBinary( data.links.download_primary.href, filename );
+              // 3. Download binary.
+              downloadBinary( data.links.download_primary.href, filename );
+            }
 
         },
         error: function(error){
