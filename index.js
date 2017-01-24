@@ -136,9 +136,7 @@ function handleSuccess(data) {
     var parsed = url.parse( data.links.download_primary.href );
     var filename = path.basename( parsed.pathname );
 
-    // 3. Download binary.
     downloadBinary( data.links.download_primary.href, filename );
-
     createShareLink(data);
 }
 
@@ -149,7 +147,7 @@ function createShareLink(data) {
     var shareAPIURL = data.links.create_share.href,
         method = data.links.create_share.method;
 
-    console.log("createShareLink: started");
+    console.log("createShareLink: started", method, options.unityAPIBase, shareAPIURL);
     najax({
         url: options.unityAPIBase + shareAPIURL,
         type: method,
@@ -161,6 +159,7 @@ function createShareLink(data) {
             console.log("Response", response);
         },
         error: function(error){
+            console.log("createShareLink: error");
             console.log(error);
 
             mainRes.send({
