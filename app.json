@@ -1,0 +1,23 @@
+{
+  "name": "unity-cloud-build-to-hockeyapp",
+  "description": "Receives a payload from Unity Cloud Build webhook. Downloads the binary and posts to the HockeyApp API. Automating deployment from Unity Cloud Build to Hockeyapp.",
+  "keywords": [
+    "webservice",
+    "unity",
+    "hockeyapp"
+  ],
+  "repository": "https://github.com/firegate666/unitycloudbuildhockeyapp",
+  "env": {
+    "UNITYCLOUD_KEY": {
+      "description": "Secret to access unity cloud build api",
+      "required": true
+    },
+    "HOCKEYAPP_KEY": {
+      "description": "Secret to access hockeyapp api",
+      "required": true
+    },
+    "PERMALINK_API_URL": {
+      "description": "URL to publish the share link to"
+    }
+  }
+}
