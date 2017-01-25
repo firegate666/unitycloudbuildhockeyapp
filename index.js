@@ -179,11 +179,15 @@ function createShareLink(data) {
             console.log("createShareLink: finished", data);
             console.log("share link: " + options.unityShareLinkBase + shareid);
 
+            payload.shareLink = options.unityShareLinkBase + shareid;
+
             if (options.permalinkApiUrl) {
                 najax({
                     url: options.permalinkApiUrl,
                     type: 'post',
                     data: payload,
+                    processData: true,
+                    contentType: 'application/json',
                     headers: {
                         'Content-Type': 'application/json'
                     }
