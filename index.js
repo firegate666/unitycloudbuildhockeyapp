@@ -175,6 +175,8 @@ function createShareLink(data) {
             'Content-Type': 'application/json'
         },
         success: function(data){
+            data = JSON.parse(data);
+
             var shareid = data.shareid;
             console.log("createShareLink: finished", data);
             console.log("share link: " + options.unityShareLinkBase + shareid);
