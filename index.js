@@ -47,11 +47,14 @@ var mainRes;
 app.post('/build', jsonParser, function (req, res) {
     if (!req.body) return res.sendStatus(400);
 
+    console.log('request received');
+    
     mainRes = res;
 
     printProjectDetails(req.body);
 
     // 1. Get Build API URL
+    console.log("DEBUG BODY", req.body);
     var buildAPIURL = req.body.links.api_self.href;
     if( !buildAPIURL ) {
         // URL not available.
